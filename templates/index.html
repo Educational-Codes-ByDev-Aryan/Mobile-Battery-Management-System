@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Battery Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>📱 Mobile Battery Management System</h1>
+
+        <form method="POST">
+
+            <label>Company Name</label>
+            <input type="text" name="company" placeholder="Enter Company Name" required>
+
+            <label>Model Name</label>
+            <input type="text" name="model" placeholder="Enter Model Name" required>
+
+            <label>Battery Percentage</label>
+            <input type="number" name="battery" min="0" max="100" placeholder="Enter Battery %" required>
+
+            <label>Charge Amount</label>
+            <input type="number" name="charge" min="0" max="100" placeholder="Enter Charge Amount" required>
+
+            <button type="submit">Charge Battery</button>
+
+        </form>
+
+        {% if mobile %}
+
+        <div class="result">
+
+            <h2>Mobile Details</h2>
+
+            <p><strong>Company :</strong> {{ mobile.company }}</p>
+
+            <p><strong>Model :</strong> {{ mobile.model }}</p>
+
+            <p><strong>Battery :</strong> {{ mobile.battery }}%</p>
+
+            <p><strong>Charge Amount :</strong> {{ mobile.charge_amount }}%</p>
+
+            <p><strong>Charging Time :</strong> {{ mobile.charging_time }} Minutes</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
