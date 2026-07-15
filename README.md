@@ -1,6 +1,6 @@
 # Mobile Battery Management System
 
-A Flask web application built using Python OOP.
+A Flask web application built using Python OOP by my logic.
 
 ## Features
 

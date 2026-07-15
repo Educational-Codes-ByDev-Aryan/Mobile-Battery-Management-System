@@ -1,0 +1,57 @@
+# Mobile Battery Management System using Python OOP / my logic.
+
+class Mobile:
+    company = "Samsung"  # class variable
+
+    def __init__(self, Model_name, Battery_percentage):
+        self.Model_name = Model_name
+        self.Battery_percentage = Battery_percentage
+        self.charge_amount = 0
+
+    def show_mobile(self):
+        print(
+            f"The company of the mobile is {Mobile.company} an the model name is {self.Model_name} and the battery remain of the mobile is {self.Battery_percentage}%  "
+        )
+        print(f"Charging Time : {Mobile.charging_time(self.charge_amount)} minutes")
+
+    def charge_battery(self, amount):
+        self.charge_amount = amount
+        self.Battery_percentage += amount
+
+        # condition
+        if self.Battery_percentage > 100:
+            self.Battery_percentage = 100
+
+    @classmethod
+    def change_company(cls, new_company):
+        cls.company = new_company
+
+    @staticmethod
+    def charging_time(battery_needed):
+
+        groups = battery_needed / 10
+        charge_time = groups * 5
+        return charge_time
+
+
+# for object 1
+print("Before charging...")
+m1 = Mobile("s25", 70)
+m1.show_mobile()
+
+# changing the company name
+m1.change_company("Google")
+
+print("After charging.........")
+m1.charge_battery(20)
+m1.show_mobile()
+
+
+# for object 2
+print("Before charging...")
+m2 = Mobile("Pixel 9", 70)
+m2.show_mobile()
+
+print("After charging.........")
+m2.charge_battery(30)
+m2.show_mobile()
